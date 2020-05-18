@@ -81,6 +81,26 @@ add_button.addEventListener('click', function(){
 
 })
 
+document.addEventListener("keydown", function (event){
+    var keyValue = event.key;
+    if(keyValue=="Enter"){
+         //Adding the new task in the task container
+    var task_card = document.createElement('div');
+    task_card.innerHTML= task_card_string
+    task_card.setAttribute("class", "task-card not-started");
+    task_card.setAttribute("id", "t"+(++task_count));
+    task_container.appendChild(task_card);
+    let card_text = document.querySelector('#t' + task_count + " p");
+    card_text.innerHTML = task_input.value;
+    task_input.value = "";
+    
+    //Change Task Count
+   updateTaskCount();
+   eventSetter();
+    }
+      
+  });
+
 function removeCard(){
     var parent = this.parentElement;
     parent.classList.add('delete-card');
