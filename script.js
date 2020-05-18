@@ -38,7 +38,7 @@ function eventSetter(){
             console.log(cards[i]);
             cards[i].children[3].style.visibility="initial";
         })
-        cards[i].addEventListener('mouseout', function(){
+        cards[i].addEventListener('mouseleave', function(){
             console.log(cards[i].children[3].style.visibility);
             cards[i].children[3].style.visibility="hidden";
         })
