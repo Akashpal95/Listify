@@ -51,7 +51,7 @@ function reassignIDs(){
     var count=1;
     for(card of cards){
         card.setAttribute("id", "t"+(count++));
-        card.eve
+        // card.eve
     }
 }
 
@@ -64,7 +64,8 @@ function resetColor(){
 
 add_button.addEventListener('click', function(){
 
-
+	if(task_input.value ==='')
+		return;
     //Adding the new task in the task container
     var task_card = document.createElement('div');
     task_card.innerHTML= task_card_string
@@ -83,6 +84,8 @@ add_button.addEventListener('click', function(){
 
 document.addEventListener("keydown", function (event){
     var keyValue = event.key;
+    if(task_input.value ==='')
+		return;
     if(keyValue=="Enter"){
          //Adding the new task in the task container
     var task_card = document.createElement('div');
@@ -170,10 +173,15 @@ clearComplete.addEventListener('click', function(){
         setTimeout(function(){
             this.parentNode.removeChild(this); 
             updateTaskCount();
+            reassignIDs();
+            eventSetter();
+
       }.bind(cards[count]),500 )
         count--;
         if(count<0){
             clearInterval(intervalID);
+            
+    		
         }
     }, 500);
     
@@ -185,7 +193,6 @@ showAll.addEventListener('click',function(){
         resetColor();
         this.style.color="black";
         var allCards = document.getElementsByClassName('task-card');
-        // allCards[0].style.display = "none";
         for(card of allCards){
             card.style.display = "flex";
         }
