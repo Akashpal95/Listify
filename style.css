@@ -85,6 +85,16 @@ select:focus {
   margin: 5px;
 }
 
+.Not-started .task-status {
+  color: #fc5753;
+}
+.Completed .task-status {
+  color: #33c747;
+}
+.In-progress .task-status {
+  color: #2196f3;
+}
+
 .Not-started div {
   background-color: #fc5753;
 }
@@ -102,7 +112,6 @@ select:focus {
 .task-status {
   margin: auto;
   font-size: 0.7rem;
-  /* color:#fc5753; */
   font-family: monospace;
 }
 .footer {
